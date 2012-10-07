@@ -1,0 +1,7 @@
+RULE a string is being built from a StringBuilder
+CLASS java.lang.StringBuilder
+METHOD toString()
+AT EXIT
+IF $!.startsWith(">>>")
+DO traceln("StringBuilder.toString() starting with >>>")
+ENDRULE

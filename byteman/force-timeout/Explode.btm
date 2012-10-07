@@ -1,0 +1,21 @@
+RULE create a countdown for 4 SumTask executions
+CLASS Sum
+METHOD main(String[])
+IF true
+DO createCountDown("SumTask", 4)
+ENDRULE
+
+RULE freeze when the countdown is over
+CLASS Sum$SumTask
+METHOD call
+IF countDown("SumTask")
+DO waitFor("Ever")
+ENDRULE
+
+RULE release the service executor
+CLASS java.util.concurrent.FutureTask$Sync
+METHOD innerGet
+AT THROW
+IF true
+DO signalWake("Ever")
+ENDRULE

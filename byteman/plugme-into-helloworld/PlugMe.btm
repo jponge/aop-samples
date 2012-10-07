@@ -1,0 +1,6 @@
+RULE calling print in HelloWorld
+CLASS HelloWorld
+METHOD print(String)
+IF true
+DO GUI.updateGUI($1)
+ENDRULE

@@ -1,0 +1,6 @@
+RULE decorate print in HelloWorld
+CLASS HelloWorld
+METHOD print(String)
+IF true
+DO $1 = "(" + $1 + ")"
+ENDRULE
